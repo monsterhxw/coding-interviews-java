@@ -10,6 +10,8 @@ public class Main {
     int m = 3;
 
     System.out.println(lastRemaining(n, m));
+
+    System.out.println(lastRemainingWithRecursive(n, m));
   }
 
   public static int lastRemaining(int n, int m) {
@@ -21,5 +23,16 @@ public class Main {
     }
 
     return pos;
+  }
+
+  public static int lastRemainingWithRecursive(int n, int m) {
+
+    if (n == 0) {
+      return 0;
+    }
+
+    int pos = lastRemainingWithRecursive(n - 1, m);
+
+    return (pos + m) % n;
   }
 }
